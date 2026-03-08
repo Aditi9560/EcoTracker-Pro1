@@ -12,7 +12,7 @@ import type {
   User,
 } from "../types";
 
-const API_BASE = "/api";
+const API_BASE = import.meta.env.DEV ? "/api" : "https://ecotracker-pro1.onrender.com/api";
 
 async function fetchApi<T>(url: string, options?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${url}`, {
